@@ -1,0 +1,39 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.supportersDiv{
+    width:90%;
+    margin:3% 5%;
+    
+    
+}
+.supporterPic{
+    background-image: url("../../assets/images/HOHlogo.png");
+    width:10%;
+    height:5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    
+}
+.aboutSponser{
+    
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    margin-bottom: 5%;
+    padding:2% 0;
+    
+    width:100%;
+}
+.labelling{
+    width:80%;
+    display: flex;
+    margin-left: 15%;
+}
+
+.displaying{
+    
+    width:100%;
+    
+    
+}

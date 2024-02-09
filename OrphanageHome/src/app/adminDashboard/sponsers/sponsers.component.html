@@ -1,0 +1,62 @@
+<h4><u id="google-font1">Sponser Details:</u></h4>
+<div class="sponserDiv" *ngFor="let z of sponserData">
+    <!-- <div class="sponserPic">
+        <img src="" alt="">
+    </div> -->
+    
+    <div class="aboutSponser">
+        <div class="labelling">
+            <label> Sponser ID</label><br>
+            <label> Name </label><br>
+            <label> Organization Name </label><br>
+            <label> Email </label><br>
+            <label> Location </label><br>
+        </div>
+        <div class="displaying">
+            <span>: {{z.sponserID}}</span><br>
+            <span>: {{z.chairman}}</span><br>
+            <span>: {{z.orgName}}</span><br>
+            <span>: {{z.email}}</span><br>
+            <span>: {{z.location}}</span><br>
+        </div>
+    </div>
+    
+
+
+    <div class="add-service-btn">
+        <button type="button" (click)="getSponserChildDetails(z.chairman)">
+            <label class="moreBtn" for="modal-1" >More Details</label>
+        </button> 
+    </div>
+    <!-- POPUP WINDOW -->
+    <input class="modal-state" id="modal-1" type="checkbox" />
+    <div class="modal" *ngIf="popValue">
+        <label class="modal__bg" for="modal-1"></label>
+        <div class="modal__inner">
+            <label class="modal__close" for="modal-1"></label>
+            <!-- INSIDE POPUP DIV CONTAINER -->
+            <div class="noSponser" *ngIf="noChild">
+                NO DATA!
+            </div>
+            <div class="aboutChild" *ngFor="let i of SponserChildData" >
+                <div class="labelling">
+                    <label> Child ID:</label><br>
+                    <label> First Name :</label><br>
+                    <label> Last Name :</label><br>
+                    <label> Standard :</label><br>
+                    
+                </div>
+                <div class="displaying">
+                    <span>{{i.childID}}</span><br>
+                    <span>{{i.firstName}}</span><br>
+                    <span>{{i.lastName}}</span><br>
+                    <span>{{i.standard}}</span><br>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+        
+</div>

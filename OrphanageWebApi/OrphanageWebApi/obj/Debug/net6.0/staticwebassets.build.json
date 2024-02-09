@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "aATOqxTlzQYVRYijyMTPot2U0EyiZq8W1Q3RI7SCYE4=",
+  "Source": "OrphanageWebApi",
+  "BasePath": "_content/OrphanageWebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

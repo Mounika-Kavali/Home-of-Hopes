@@ -1,0 +1,233 @@
+<div class="paymentDetailsDiv"> 
+    <div class="tabular-form">
+        <h2 id="google-font4">Funds of Individuals-</h2>
+
+        <!-- sort bar -->
+
+    <select  [(ngModel)]="sortItem"  id="sorting">
+        <option value="0">----SORT BY---- </option>
+        <option value="amountPaid" > Amount Paid</option>
+        <option value="fullName">Name</option>
+        <option value="city">City</option>
+        <option value="country">Country</option>
+    </select>
+        <table>
+            <tr>
+                <th>Sl.No</th>
+                <!-- <th>Pay ID</th> -->
+                <th>Full Name</th>
+                <th>Email Id</th>
+                <th>Phone No</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Paid Date</th>
+                <th>AmountPaid</th>
+                
+            </tr>
+            <tr *ngFor="let item of fundsInfo | sort:[sortItem]; let i=index">
+                <td>{{i+1}}</td>
+                <!-- <td>{{item.payId}}</td> -->
+                <td>{{item.fullName}}</td>
+                <td>{{item.emailId}}</td>
+                <td>{{item.phone}}</td>
+                <td>{{item.city}}</td>
+                <td>{{item.country}}</td>
+                <td>{{ dateNow | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
+                <td id="cost">{{item.amountPaid}}</td>
+                
+            </tr>
+            <tr >
+                <td colspan="7" id="cost" ><h3>Total Amount:</h3></td>
+                <td id="cost1" >{{tot}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<div class="expenditureDetailsDiv"> 
+    <div class="expenditure-form" >
+        <h2 id="google-font4">Monthly Expenditures-</h2>
+        <div class="expenses-table" *ngFor="let exp of expensesData; let i=index">
+            <p>{{exp.onDate}}</p>
+       
+        <table >
+            
+            <tr>
+                <th>Expenses</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="labellings">
+                        <label for="id">ID</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputValues" *ngIf="onEdit">
+                        <input type="number" [(ngModel)]="expenses.id" ngDefaultControl>
+                    </div>
+                    <div class="inputValues" *ngIf="!onEdit">
+                        {{exp.id}}
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="labellings">
+                        <label for="food">Food</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputValues" *ngIf="onEdit">
+                        <input type="number" [(ngModel)]="expenses.food" ngDefaultControl >
+                    </div>
+                    <div class="inputValues" *ngIf="!onEdit">
+                        {{exp.food}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="labellings">
+                        <label for="Clothings">Clothings</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputValues" *ngIf="onEdit">
+                        <input type="number" [(ngModel)]="expenses.clothing" ngDefaultControl>
+                    </div>
+                    <div class="inputValues" *ngIf="!onEdit">
+                        {{exp.clothing}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="labellings">
+                        <label for="HealthCare">HealthCare</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputValues" *ngIf="onEdit">
+                        <input type="number" [(ngModel)]="expenses.health" ngDefaultControl>
+                    </div>
+                    <div class="inputValues" *ngIf="!onEdit">
+                        {{exp.health}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="labellings">
+                        <label for="Education">On Education</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputValues" *ngIf="onEdit">
+                        <input type="number" [(ngModel)]="expenses.education" ngDefaultControl>
+                    </div>
+                    <div class="inputValues" *ngIf="!onEdit">
+                        {{exp.education}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="labellings">
+                        <label for="Sanitation">Sanitation</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputValues" *ngIf="onEdit">
+                        <input type="number" [(ngModel)]="expenses.sanitation" ngDefaultControl>
+                    </div>
+                    <div class="inputValues" *ngIf="!onEdit">
+                        {{exp.sanitation}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="labellings">
+                        <label for="Salaries">Workers Salaries</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputValues" *ngIf="onEdit">
+                        <input type="number" [(ngModel)]="expenses.salaries" ngDefaultControl>
+                    </div>
+                    <div class="inputValues" *ngIf="!onEdit">
+                        {{exp.salaries}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="labellings">
+                        <label for="Maintainance">Repairs & Maintainance</label>
+                    </div>
+                    
+                </td>
+                <td>
+                    <div class="inputValues" *ngIf="onEdit">
+                        <input type="number" [(ngModel)]="expenses.maintainance" ngDefaultControl>
+                    </div>
+                    <div class="inputValues" *ngIf="!onEdit">
+                        {{exp.maintainance}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="labellings">
+                        <label for="other">Others</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputValues" *ngIf="onEdit">
+                        <input type="number" [(ngModel)]="expenses.others" ngDefaultControl>
+                    </div>
+                    <div class="inputValues" *ngIf="!onEdit">
+                        {{exp.others}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="total-label">
+                        <label for="sum"><b>TOTAL</b></label>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputValues" style="font-size:22px;" [(ngModel)]="expenses.sum" ngDefaultControl>
+                        <b>{{totExp[i]}}</b>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>{{buttonsCall(exp.id)}}
+                <div class="expenditure-buttons" *ngIf="expButtons==true">
+                    <div *ngIf="addOn" id="expBtn">
+                        <button type="button" (click)="newExpenditures();">NEW</button>
+                    </div>
+                    <div *ngIf="editOn" id="expBtn">
+                        <button type="button" (click)="editExpenditures()">EDIT</button>
+                    </div>
+                    <div *ngIf="updateOn" id="expBtn">
+                        <button type="button" (click)="updateValues(expenses)">UPDATE</button>
+                    </div>
+                    <div *ngIf="saveOn" id="expBtn">
+                        <button type="button" (click)="saveExpenditures()">SAVE</button>
+                    </div>
+                    <div *ngIf="cancelOn" id="expBtn">
+                        <button type="button" (click)="cancel()">CANCEL</button>
+                    </div>
+                </div>
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,291 @@
+<div class="child-form" >
+
+    
+            <label for="std">TYPE OF CHILD<sup id="superScript">*</sup></label><br> 
+            <select id="inp" [(ngModel)]="childForm.type_of_child" name="childType" >
+                <option value="0">----CHOOSE---- </option>
+                <option value="having parents" 
+                ngDefaultControl class="dropdown-item fontstyle" 
+                id="inp"> having parents</option>
+                <option value="having no parents" 
+                ngDefaultControl class="dropdown-item fontstyle" 
+                id="inp"> having no parent</option>
+            </select>
+           
+
+    <form class="add-child-details" (ngSubmit)="addChildData()" autocomplete="off">
+        
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="fname">First Name:<sup id="superScript">*</sup></label><br> 
+                    <input type="text" id="inp" [(ngModel)]="childForm.firstName" name="fname">
+                </div>
+            </div>
+            <div class="grid-item">
+                    
+                <div class="fields">
+                        <label for="lname">Last Name:</label><br> 
+                        <input type="text" id="inp" [(ngModel)]="childForm.lastName" name="lname">
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="dob">DOB:<sup id="superScript">*</sup></label> <br>
+                    <input type="date" id="inp" [(ngModel)]="childForm.dob" name="DOB">
+                </div>  
+            </div>  
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="age">AGE:<sup id="superScript">*</sup></label><br> 
+                    <input type="number" id="inp" [(ngModel)]="childForm.age" name="AGE">
+                </div>
+            </div>
+            <div class="grid-item">
+                <label for="gender" id="gender">Gender:</label>
+                <div class="fieldz">
+                    
+                    <div class="radio" *ngFor="let x of genders">
+                        
+                            <input type="radio" name="gender" value="{{x}}" [(ngModel)]="childForm.gender">
+                            {{ x }}
+                       
+                    </div> 
+                    
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="std">Standard:<sup id="superScript">*</sup></label><br> 
+                    <select id="inp" [(ngModel)]="childForm.standard" name="std" >
+                        <option value="0">----SELECT---- </option>
+                        <option value="{{i.text}}" 
+                        ngDefaultControl class="dropdown-item fontstyle" 
+                        *ngFor="let i of qualificationData"  id="inp" 
+                        > {{i.text}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="GName">Guardian Name:</label> <br>
+                    <input type="text" id="inp" [(ngModel)]="childForm.guardianName" name="guardian">
+                </div>
+            </div> 
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="ph">Contact No:</label> <br>
+                    <input type="text" id="inp" [(ngModel)]="childForm.contactNo" name="contact">
+                </div>
+            </div>             
+            
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="address">Address:</label> <br>
+                    <textarea  id="inp" cols="30" rows="5" [(ngModel)]="childForm.address" name="location"></textarea>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="doj">Date of Joining:<sup id="superScript">*</sup></label> <br>
+                    <input type="datetime-local" id="inp" [(ngModel)]="childForm.doj" name="joinDate">
+                </div>
+            </div> 
+
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="remarks">Remarks</label> <br>
+                    <textarea  id="inp" cols="30" rows="3" [(ngModel)]="childForm.remarks" name="remak"></textarea>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="fields">
+                    <label for="std">Educational Sponser:</label><br> 
+                    <select id="inp" [(ngModel)]="childForm.sponser" name="sponserName" >
+                        <option value="0">----SELECT---- </option>
+                        <option value="{{i.chairman}}" 
+                        ngDefaultControl class="dropdown-item fontstyle" 
+                        *ngFor="let i of sponserData"  id="inp" 
+                        > {{i.chairman}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="fields">
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="fields">
+
+                    <div class="operation-buttons">
+                        <div *ngIf="editOn==true && updateOn==true">
+                            <button type="button" class="Button" id="id3" (click)="UpdateRow(childForm)">Update</button> 
+                        </div>
+                        
+                        <div *ngIf=" updateOn==false">
+                            <button type="submit" class="Button"  id="id1"  >Save </button> 
+                        </div>
+
+                        <button type="button" class="Button" id= "id2" (click)="cancelForm()" >Cancel </button>
+                    </div>
+
+                </div>
+            </div> 
+
+        </div>
+
+    </form>
+</div>
+<div  class="error-msg" *ngIf=noError>
+    {{msg}}
+</div>
+
+<div *ngIf="historyButton" id="viewButton">
+    <button (click)="openDiv()" >View History</button>
+</div>
+<div *ngIf="!historyButton" id="viewButton">
+    <button (click)="openDiv()" >View Data</button>
+</div>
+
+<br>
+
+<div class="childrenDetailsDiv" *ngIf="!openHistoryDiv"> 
+    
+   
+    <div class="tabular-childform">
+        <p id="google-font3"><u>List of Children Details</u></p>
+
+         <!-- search bar -->
+        <input type="search" [(ngModel)]="searchItems" placeholder="SEARCH ANY" id="searchBar">
+
+        <table>
+            <tr *ngFor="let child of kidData | filter:searchItems; let i=index">
+               
+            <div class="row-details">
+                <div class="impersonal-info">
+                    <div id="labelling">
+                        <label ><b>Child ID </b></label><br>
+                        <label ><b>Child Type  </b></label> <br>
+                        <label ><b>First Name </b></label> <br> 
+                        <label ><b>Last Name </b></label> <br>
+                        <label ><b>DOJ </b></label> <br>
+                        <label ><b>Standard </b></label> <br> 
+                        <label ><b>Age </b></label> <br>
+                    </div>
+                    <div id="displaying">
+                        <span>: {{child.childID}}</span> <br> 
+                        <span>: {{child.type_of_child}}</span><br>
+                        <span>: {{child.firstName}}</span><br>
+                        <span>: {{child.lastName}}</span><br>
+                        <span>: {{child.doj}}</span><br>
+                        <span>: {{child.standard}}</span><br>
+                        <span>: {{child.age}}</span><br>
+                    </div>
+                </div>
+                
+                <div class="personal-info">
+                    <div id="labelling">
+                        <label ><b>Gender </b></label><br>
+                        <label ><b>DOB  </b></label> <br>
+                        <label ><b>Guardian Name </b></label> <br> 
+                        <label ><b>Mobile No </b></label> <br>
+                        <label ><b>Address </b></label> <br>
+                        <label ><b>Remarks </b></label> <br>
+                    </div>
+                    <div id="displaying">
+                        <span>: {{child.gender}}</span> <br> 
+                        <span>: {{child.dob}}</span><br>
+                        <span>: {{child.guardianName}}</span><br>
+                        <span>: {{child.contactNo}}</span><br>
+                        <span>: {{child.address}}</span><br>
+                        <span>: {{child.remarks}}</span><br>
+                    </div>
+                </div>
+
+                <div class="button-action">
+                    <div class="action1" (click)="EditRow(child)">
+                        <fa-icon [icon]="edit_icon" id="edit_icon" class="action_icon" ></fa-icon>
+                        <span>EDIT</span>
+                
+                    </div>
+                    <div class="action2" (click)="delChildDetails(child.childID)">
+                        <fa-icon [icon]="del_icon" id="del_icon" class="action_icon" ></fa-icon>
+                        <span>DELETE</span>
+
+                    </div>
+                    
+                </div>
+            </div>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- HISTORY DETAILS OF CHILDREN -->
+<div class="historyDetailsDiv" *ngIf="openHistoryDiv"> 
+    
+   
+    <div class="tabular-history">
+        <p id="google-font3"><u>Deleted Children Details</u></p>
+
+         <!-- search bar -->
+        <input type="search" [(ngModel)]="searchItem" placeholder="SEARCH ANY" id="searchBar">
+
+        <table>
+            <tr *ngFor="let Hchild of HistoryData | filter:searchItem; let i=index">
+               
+            <div class="his-row-details">
+                <div class="impersonal-info">
+                    <div id="labelling">
+                        <label ><b>Child ID </b></label><br>
+                        <label ><b>Child Type  </b></label> <br>
+                        <label ><b>First Name </b></label> <br> 
+                        <label ><b>Last Name </b></label> <br>
+                        <label ><b>DOJ </b></label> <br>
+                        <label ><b>Standard </b></label> <br> 
+                        <label ><b>Age </b></label> <br>
+                    </div>
+                    <div id="displaying">
+                        <span>: {{Hchild.childID}}</span> <br> 
+                        <span>: {{Hchild.type_of_child}}</span><br>
+                        <span>: {{Hchild.firstName}}</span><br>
+                        <span>: {{Hchild.lastName}}</span><br>
+                        <span>: {{Hchild.doj}}</span><br>
+                        <span>: {{Hchild.standard}}</span><br>
+                        <span>: {{Hchild.age}}</span><br>
+                    </div>
+                </div>
+                
+                <div class="personal-info">
+                    <div id="labelling">
+                        <label ><b>Gender </b></label><br>
+                        <label ><b>DOB  </b></label> <br>
+                        <label ><b>Guardian Name </b></label> <br> 
+                        <label ><b>Mobile No </b></label> <br>
+                        <label ><b>Address </b></label> <br>
+                        <label ><b>Remarks </b></label> <br>
+                        <label ><b>Last sponser </b></label> <br>
+                    </div>
+                    <div id="displaying">
+                        <span>: {{Hchild.gender}}</span> <br> 
+                        <span>: {{Hchild.dob}}</span><br>
+                        <span>: {{Hchild.guardianName}}</span><br>
+                        <span>: {{Hchild.contactNo}}</span><br>
+                        <span>: {{Hchild.address}}</span><br>
+                        <span>: {{Hchild.remarks}}</span><br>
+                        <span>: {{Hchild.sponser}}</span><br>
+                    </div>
+                </div>
+
+            </div>
+            </tr>
+        </table>
+    </div>
+</div>

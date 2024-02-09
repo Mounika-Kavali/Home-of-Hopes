@@ -1,0 +1,94 @@
+*{
+    padding:0;
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+marquee {
+    background-color: red;
+    color:white;
+    padding:12px 0;
+    
+}
+.content-area{
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 3% 10%;
+}
+.content-col{
+    width:25%;
+    
+    height:30vh;
+    
+    
+}
+.animate-box{
+
+    width:100%;
+    height:50vh;
+    background-color: blue;
+    background-image: url("../../../assets/images/balloons.PNG");
+    background-size: cover;
+    opacity: 0.5;
+    border-radius: 10%;
+}
+.animate-circle {
+
+    width:100%;
+    height:100%;
+    background-color: blue; 
+    border-radius: 60%;
+    background-image: url("../../../assets/images/HOHlogo.png");
+    background-size: cover;
+    background-position: center;
+    
+}
+
+#google-font{
+    /* index.html included google font style */
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 5%;
+}
+#google-font3{
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+    margin-left: 5%;
+}
+.tabular-form table{
+    width:80%;
+    margin:5%;
+}
+.tabular-form tr td {
+    border-bottom: 1pt solid #ff000d;
+}
+.tabular-form tr th{
+    text-align: left;
+}
+.tabular-form td{
+    padding:15px 10px 15px 0px;
+    font-size: 18px;
+}
+.tabular-form {
+    
+    margin-top: 10%;
+}
+.aboutFunds{
+    margin:5%;
+}
+
+.donationDetails{
+    display:flex;
+    width:40%;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+
+svg{
+    cursor: pointer;
+
+}

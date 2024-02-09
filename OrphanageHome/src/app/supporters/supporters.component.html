@@ -1,0 +1,34 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="supportersDiv">
+
+    
+     
+    <div class="aboutSponser" *ngFor="let z of sponserData">
+        <div class="supporterPic">
+            
+            
+        </div>
+        <div class="labelling">
+            <label> Name </label>
+            <div class="displaying" style="margin-left: 160px;"> <span>: {{z.chairman}}</span></div>
+        </div>
+        <div class="labelling">
+            <label> Organization&nbsp;Name </label>
+            <div class="displaying" style="margin-left: 64px;"> <span>: {{z.orgName}}</span></div>
+        </div>
+        <div class="labelling">
+            <label> Email </label>
+            <div class="displaying" style="margin-left: 164px;"> <span>: {{z.email}}</span></div>
+        </div>
+        <div class="labelling">
+            <label> Location </label>
+            <div class="displaying" style="margin-left: 142px;"> <span>: {{z.location}}</span></div>
+        </div>
+        <div class="labelling">
+            <label> Description </label>
+            <div class="displaying" style="margin-left: 120px;"> <span>: {{z.sponserDetails}}</span></div>
+        </div>
+            
+    </div>
+    
+</div>

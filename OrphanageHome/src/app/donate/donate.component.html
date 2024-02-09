@@ -1,0 +1,92 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="container">
+    <div class="side-container">
+        <div class="acc-details">
+            <div class="title" >
+                <h2>HOME OF HOPE</h2> 
+            </div>
+            <div class="indian-donar">
+                <h2><strong style="color: rgb(240, 81, 80);"><u>For Indian Donor</u></strong></h2>
+                <p>Account Name: Home of Hope</p>
+                <p>Bank Name: ICICI BANK</p>
+                <p>Account No: 002801021284</p>
+                <p>IFSC code :&nbsp;ICIC0000028</p>
+                <p>BANK Address :&nbsp;Porwal Complex,</p>
+                <p>Dr. Ambedkar Rd, Bhayander (W),</p>
+                <p>Thane 401101</p>
+                <h3>Or,</h3>
+                <p>Account Name: Home of Hope</p>
+                <p>Bank name: Bank of Baroda</p>
+                <p>Account No: 99060100013475</p>
+                <p>IFSC Code: BKDN0470348</p>
+                <p>Branch: Uttan</p>
+                <p><br></p>
+            </div>
+                
+                  
+            
+            <div class="foreign-donar">
+                <h2><strong style="color: rgb(240, 81, 80);"><u>For Foreign or NRI Donor</u></strong></h2>
+                <p>Account Name: Home of Hope</p>
+                <p>FCRA Registration Number:083990088,&nbsp;</p>
+                <p>Account Number: 40087079164</p>
+                <p>Bank Name: State Bank Of India</p>
+                <p>Branch Code: 00691</p>
+                <p>IFSC Code: SBIN0000691</p>
+                <p>SWIFT Code: SBININBB104</p>
+                <p><br></p>
+                <p>Address: FCRA Cell, 4th Floor, State Bank Of India, New Delhi Main Branch, 11, Sansad Marg, New Delhi-110001.</p>
+            
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="payment-details">
+        <div class="pay-title"><h4><u>PAYMENT DETAILS</u></h4> </div>
+        <form (ngSubmit)="addPayment()" autocomplete="off">
+            
+            <div class="field-row">
+                <div class="field-label"> Amount</div>
+                <div class="field-input"> 
+                    <input type="number" 
+                    id="ip" 
+                    [(ngModel)]="paymentForm.amountPaid" 
+                    name="amount" maxlength="8" >
+                </div>
+            </div>
+            <div class="field-row">
+                <div class="field-label"> Full Name</div>
+                <div class="field-input"> 
+                    <input type="text" id="ip" [(ngModel)]="paymentForm.fullName" name="fname"></div>
+            </div>
+            <div class="field-row">
+                <div class="field-label"> Email</div>
+                <div class="field-input"> <input type="email" id="ip" [(ngModel)]="paymentForm.emailId" name="email"></div>
+            </div>
+            <div class="field-row">
+                <div class="field-label"> Mobile</div>
+                <div class="field-input"> <input type="text" id="ip" [(ngModel)]="paymentForm.phone" name="mobile"></div>
+            </div>
+            <div class="field-row">
+                <div class="field-label"> City</div>
+                <div class="field-input"> <input type="text" id="ip" [(ngModel)]="paymentForm.city" name="city"></div>
+            </div>
+            <div class="field-row">
+                <div class="field-label">Country</div>
+                <div class="field-input"> <input type="text" id="ip" [(ngModel)]="paymentForm.country" name="country"></div>
+            </div>
+            <div class="field-btn">
+                <button type="submit" class="pay-btn" >Pay <fa-icon [icon]="rupeeSign"></fa-icon><span> {{paymentForm.amountPaid}}</span></button>
+            </div>
+
+            <div  class="error-msg" *ngIf=noError>
+                <fa-icon [icon]="doneIcon" id="done-icon"></fa-icon>&nbsp;{{msg}}
+            </div>
+        </form>   
+    </div>
+
+
+
+</div>

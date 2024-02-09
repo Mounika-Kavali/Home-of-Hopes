@@ -1,0 +1,86 @@
+.content{
+    width:100%;
+    box-sizing: content-box;
+    background-color:white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-details{
+    background-color: white;
+    width:25%;
+    margin-top:3%;
+    margin-left:10%;
+}
+.data-box{
+    width:70%;
+    padding:2%;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    margin:20% 14% 0;   
+    background-color: aliceblue;
+}
+#icons:hover{
+    color:red;
+    font-size: 25px;
+}
+.volunteer-details{
+    background-color: white;
+    width:45%;
+    margin-right:10%;
+    margin-top:3%;
+    
+}
+.fieldz{
+    background-color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 2% 10%;
+    margin:10%;
+}
+.inp-fields{
+    display: grid;
+   
+}
+.inp{
+    margin:3% 0;
+    padding:4%;
+    border:1px solid dimgray;
+    font-size: 18px;
+    outline-color: blue;
+}
+#Indie-Flower_googleFont{
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    font-weight: 700;
+    color:rgb(196, 69, 90)
+}
+#heart-icon{
+    color:red;
+}
+.error-msg{
+    color:white;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    background-color: green;
+    padding-left: 6px;
+    margin-bottom: 15px;
+
+    opacity: 0;
+    animation: fadeInOut 2s linear;
+}
+
+@keyframes fadeInOut {
+    0%,100% { opacity: 0 }
+    50% { opacity: 1 }
+}
+#reg-btn{
+    border:none;
+    outline:none;
+    color:white;
+    font-size: 20px;
+    cursor: pointer;
+    background-color:red;
+    margin:0 33%;
+}
+

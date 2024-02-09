@@ -1,0 +1,65 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="content">
+    <div class="home-details">
+        <h4><u>WHERE YOU CAN FIND US</u></h4>
+        <div class="data-box">
+            <h4>LOCATION</h4>
+            <fa-icon [icon]="map" id="icons"></fa-icon>
+            <p>Mumbai, India</p>
+        </div>
+        <div class="data-box">
+            <h4>EMAIL</h4>
+            <fa-icon [icon]="mail" id="icons"></fa-icon>
+            <p>hohindia.hopeofhomes@gmail.com</p>
+        </div>
+        <div class="data-box">
+            <h4>PHONE NUMBER</h4>
+            <fa-icon [icon]="ph" id="icons"></fa-icon>
+            <p>+91 81698 07621</p>
+            <p>(10:30 am to 6 pm only)</p>
+        </div>
+
+    </div>
+
+    <div class="volunteer-details">
+        <h4><u>SAY HELLO TO US</u></h4>
+        <div class="fieldz">
+            <p id="Indie-Flower_googleFont">We can't help everyone But everyone can help someone!
+                <fa-icon [icon]="heart" id="heart-icon"></fa-icon>
+            </p>
+            <!-- watch this vid for reactiveform
+            https://www.youtube.com/watch?v=H-vGzQHsiec&ab_channel=MizDeveloper%27s -->
+            
+            <!-- <form [formGroup]="contactForm" >
+                <div  class="error-msg" *ngIf=noError>
+                    {{msg}}
+                </div>
+                <div class="inp-fields">
+                    <input type="text" placeholder="Full Name" class="inp" formControlName="volunteerName">
+                    <input type="text" placeholder="Email" class="inp" formControlName="volunteerMail">
+                    <input type="text" placeholder="Phone" class="inp" formControlName="volunteerPh">
+                    <textarea class="inp"  rows="6" cols="40" placeholder="Message" formControlName="volMessage"></textarea><br>
+                </div>
+                <button type="submit" (click)="contactDetails()" id="reg-btn">Register</button>
+            </form> -->
+
+            <form (ngSubmit)="addContacts()" autocomplete="off">
+                <div class="inp-fields">
+                    <div  class="error-msg" *ngIf=noError>
+                        {{msg}}
+                    </div>
+                    <input type="text" placeholder="Full Name" class="inp" [(ngModel)]="contactForm.fullName" name="name" >
+                    <input type="text" placeholder="Email Address" class="inp" [(ngModel)]="contactForm.email" name="mail" >
+                    <input type="text" placeholder="Phone Number" class="inp" [(ngModel)]="contactForm.mobile" name="ph" >
+                    <textarea class="inp"  rows="6" cols="40" placeholder="Message" [(ngModel)]="contactForm.description" name="descript" ></textarea><br>
+                </div>
+                <button type="submit"  id="reg-btn">Register</button>
+           
+            </form>
+        </div>
+        
+    </div>
+
+
+</div>

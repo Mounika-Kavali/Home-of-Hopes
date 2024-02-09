@@ -1,0 +1,54 @@
+#sorting{
+    padding:10px 5px;
+}
+.tabular-form{
+    margin-left: 10%;
+}
+#google-font4{
+    font-family: 'Satisfy', cursive;
+    font-size: 40px;
+}
+
+
+.tabular-form table ,th,td{
+    border:1px solid black;
+    border-collapse:collapse;
+}
+.tabular-form td{
+    padding:15px 10px 15px 0px;
+    font-size: 18px;
+}
+#cost{
+    text-align: right;
+   
+}
+#cost1{
+    text-align: right;
+   color:teal;
+   font-weight: 700;
+   font-size: 25px;
+}
+.tabular-form table{
+    margin-top: 5%;
+    width:120%;
+    
+}
+.expenditure-form{
+    margin-left:10%;
+    margin-bottom: 10%;
+}
+.expenditure-form table{
+    margin-left: 20%;
+    width:40%;
+}
+.expenditure-form table,th,td{
+    border:2px solid palevioletred;
+    border-collapse:collapse;
+}
+.expenditure-buttons{
+    display: flex;
+}
+#expBtn{
+    margin:0 10px;
+}
+

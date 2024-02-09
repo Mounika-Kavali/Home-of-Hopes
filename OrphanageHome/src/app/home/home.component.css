@@ -1,0 +1,118 @@
+
+.slowFade {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+.slowFade .slide img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    background: #000;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    opacity: 0;
+    /* transform: scale(1.5) rotate(15deg); */
+    -webkit-animation: slowFade 10s infinite;
+            animation: slowFade 10s infinite;
+}
+.slowFade .slide:nth-child(3) img {
+    -webkit-animation-delay: 8s;
+            animation-delay: 8s;
+}
+.slowFade .slide:nth-child(2) img {
+    -webkit-animation-delay: 4s;
+            animation-delay: 4s;
+}
+.slowFade .slide:nth-child(1) img {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+}
+
+@keyframes slowFade {
+    25% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+    40% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes slowFade {
+    25% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+    40% {
+        opacity: 0;
+    }
+}
+.sp-label{
+    text-align: center;
+}
+.sponsors-row{
+    width:100%;
+    
+    margin-top: 2%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
+}
+.partners-col{
+    width:23%;
+    height:100%;
+    margin-top: 4%;
+    background-color: white;
+    box-sizing: border-box;
+    
+}
+.box{
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    
+}
+.box img{
+    width:100%;
+    height:100%;
+    
+    
+}
+.box:hover{
+    
+    transform: translateY(-50px);
+}
+#more-details-footer{
+    text-align: center;
+    margin-top:5%;
+}
+.footer-row{
+    width:100%;
+    
+    
+    background-color: rgb(241, 237, 237);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.footer-col{
+    width:20%;
+    height:100%;
+    margin-left: 5%;
+    background-color:  rgb(241, 237, 237);
+    box-sizing: border-box;
+}
+.box-info{
+    width: 100%;   
+}
+.box-info p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
